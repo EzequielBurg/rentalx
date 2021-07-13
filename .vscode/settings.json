@@ -2,15 +2,28 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "emmet.syntaxProfiles": {
-    "javascript": "jsx"
-  },
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
-  "git.ignoreLimitWarning": true,
+
   "editor.fontFamily": "Fira Code Retina",
   "editor.fontLigatures": true,
   "editor.fontWeight": "300",
   "editor.fontSize": 13.5,
+
+  "material-icon-theme.folders.associations": {
+    "infra": "app",
+    "entities": "class",
+    "schemas": "class",
+    "typeorm": "database",
+    "repositories": "mappings",
+    "http": "container",
+    "migrations": "tools",
+    "modules": "comopnents",
+    "implementations": "core",
+    "dtos": "typescript",
+    "fakes": "mock"
+  },
+
+  "material-icon-theme.files.associations": {
+    "ormconfig.json": "database",
+    "tsconfig.json": "tune"
+  }
 }
