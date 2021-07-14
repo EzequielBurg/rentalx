@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+   "host": "192.168.99.100",
+   "port": 5432,
+   "username": "rentalx",
+   "password": "rentalx",
+   "database": "rentalx",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "src/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ]
+}

@@ -28,10 +28,14 @@ export class ImportCategoryUseCase {
             description,
           });
         })
-        .on("end", () => resolve(categories))
-        .on("error", (err) => reject(err));
-
-      fs.promises.unlink(file.path);
+        .on("end", async () => {
+          await fs.promises.unlink(file.path);
+          resolve(categories);
+        })
+        .on("error", async (err) => {
+          await fs.promises.unlink(file.path);
+          reject(err);
+        });
     });
   }
 
