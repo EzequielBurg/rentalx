@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add tsyringe
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js remove uuid
 
 PATH: 
   C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Embarcadero\Studio\17.0\bin;C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl;C:\Program Files (x86)\Embarcadero\Studio\17.0\bin64;C:\Users\Public\Documents\Embarcadero\Studio\17.0\Bpl\Win64;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Users\ezeki\OneDrive\Documentos\php7128;C:\php72;C:\Program Files\MySQL;C:\ProgramData\ComposerSetup\bin;C:\sqlite3;C:\Program Files\PostgreSQL\11\bin;C:\Windows\python37.exe;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Android\Sdk\platform-tools;C:\Android\Sdk\tools;C:\Users\ezeki\AppData\Local\Programs\Python\Python37-32\python.exe;C:\Program Files\TortoiseGit\bin;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Android\Sdk\emulator;C:\Android\Sdk\tools\bin;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\lib\Elixir/bin;C:\Users\ezeki\AppData\Local\Microsoft\WindowsApps;C:\Users\ezeki\AppData\Roaming\Composer\vendor\bin;C:\Program Files\JetBrains\PhpStorm 2019.1.2\bin;;C:\Users\ezeki\AppData\Roaming\npm;C:\Users\ezeki\AppData\Local\Yarn\bin;C:\Users\ezeki\AppData\Local\Programs\Python\Python37-32\;C:\Users\ezeki\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\ezeki\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\Docker Toolbox;
@@ -34,8 +34,8 @@ npm manifest:
       "pg": "^8.6.0",
       "reflect-metadata": "^0.1.13",
       "swagger-ui-express": "^4.1.6",
-      "typeorm": "^0.2.34",
-      "uuid": "^8.3.2"
+      "tsyringe": "^4.6.0",
+      "typeorm": "^0.2.34"
     },
     "devDependencies": {
       "@types/csv-parse": "^1.2.2",
@@ -2562,7 +2562,7 @@ Lockfile:
       strip-bom "^3.0.0"
       strip-json-comments "^2.0.0"
   
-  tslib@^1.8.1:
+  tslib@^1.8.1, tslib@^1.9.3:
     version "1.14.1"
     resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
     integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
@@ -2578,6 +2578,13 @@ Lockfile:
     integrity sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==
     dependencies:
       tslib "^1.8.1"
+  
+  tsyringe@^4.6.0:
+    version "4.6.0"
+    resolved "https://registry.yarnpkg.com/tsyringe/-/tsyringe-4.6.0.tgz#14915d3d7f0db35e1cf7269bdbf7c440713c8d07"
+    integrity sha512-BMQAZamSfEmIQzH8WJeRu1yZGQbPSDuI9g+yEiKZFIcO46GPZuMOC2d0b52cVBdw1d++06JnDSIIZvEnogMdAw==
+    dependencies:
+      tslib "^1.9.3"
   
   type-check@^0.4.0, type-check@~0.4.0:
     version "0.4.0"
