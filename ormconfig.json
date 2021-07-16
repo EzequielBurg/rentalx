@@ -5,15 +5,13 @@
    "username": "rentalx",
    "password": "rentalx",
    "database": "rentalx",
-   "synchronize": true,
-   "logging": false,
-   "entities": [
-      "src/entity/**/*.ts"
-   ],
    "migrations": [
-      "src/migration/**/*.ts"
+      "./src/database/migrations/*.ts"
    ],
-   "subscribers": [
-      "src/subscriber/**/*.ts"
-   ]
+   "entities": [
+      "./src/modules/**/entities/*.ts"
+   ],
+   "cli": {
+      "migrationsDir": "./src/database/migrations"
+   }
 }
