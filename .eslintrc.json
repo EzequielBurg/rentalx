@@ -78,7 +78,10 @@
           "**/*.spec.js"
         ]
       }
-    ]
+    ],
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "argsIgnorePattern": "_"
+    }]
   },
   "settings": {
     "import/resolver": {

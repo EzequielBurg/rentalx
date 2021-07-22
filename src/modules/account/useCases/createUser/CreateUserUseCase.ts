@@ -1,6 +1,7 @@
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
+import { AppError } from "../../../../errors/AppError";
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 import { User } from "../../entities/User";
 import { IUsersRepository } from "../../repositories/implementations/IUsersRepository";
@@ -18,7 +19,7 @@ export class CreateUserUseCase {
     );
 
     if (userAlreadyExsists) {
-      throw new Error("This email already exists!");
+      throw new AppError("This email already exists!", 422);
     }
 
     const { password } = data;
