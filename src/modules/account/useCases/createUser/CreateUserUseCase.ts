@@ -31,6 +31,8 @@ export class CreateUserUseCase {
       password: passwordHash,
     });
 
+    delete userCreated.password;
+
     return userCreated;
   }
 }

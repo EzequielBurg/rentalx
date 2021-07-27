@@ -34,6 +34,8 @@ export async function ensureAuthenticated(
       throw new AppError("You can't access this resource", 401);
     }
 
+    req.user = { id: user_id };
+
     return next();
   } catch {
     throw new AppError("Invvalid JWT token", 401);
