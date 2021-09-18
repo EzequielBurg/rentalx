@@ -1,4 +1,5 @@
 export interface IUpdateUserAvatarDTO {
+  id: string;
   name: string;
   email: string;
   password: string;
