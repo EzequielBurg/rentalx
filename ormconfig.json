@@ -1,17 +1,17 @@
 {
   "type": "postgres",
-  "host": "192.168.99.100",
+  "host": "localhost",
   "port": 5432,
   "username": "rentalx",
   "password": "rentalx",
   "database": "rentalx",
   "migrations": [
-    "./src/database/migrations/*.ts"
+    "./src/shared/infra/typeorm/migrations/*.ts"
   ],
   "entities": [
     "./src/modules/**/entities/*.ts"
   ],
   "cli": {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
 }

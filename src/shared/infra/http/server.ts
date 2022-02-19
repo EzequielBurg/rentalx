@@ -7,8 +7,8 @@ import "@shared/infra/typeorm";
 import "@shared/container";
 import { AppError } from "@shared/errors/AppError";
 
-import { routes } from "./shared/infra/http/routes";
-import swaggerFile from "./swagger.json";
+import swaggerFile from "../../../swagger.json";
+import { routes } from "./routes";
 
 const app = express();
 

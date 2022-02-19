@@ -1,36 +1,56 @@
-# NodeJS Template
+# Cadastro de carro
 
-A simple NodeJS template with Express, Typescript, eslint, prettier and editorconfig.
+**Requisitos Funcionais**
+Deve ser possível cadastrar um novo carro.
+Deve ser possível listar todas as categorias.
+
+**Regras de negócio**
+Não deve ser possível cadastrar um carro com uma placa já existente.
+Não deve ser possível alterar a placa de um carro já cadastrado.
+O carro deve ser cadastrado, por padrão, com disponibilidade.
+O usuário responsável pelo cadastro deve ser um usuário admnistrador.
+
+# Listagem de carros
+
+**Requisitos Funcionais**
+Deve ser possível listar todos os carros disponíveis.
+Deve ser possível listar todos os carros disponíveis pelo nome.
+Deve ser possível listar todos os carros disponíveis pela marca.
+Deve ser possível listar todos os carros disponíveis pela categoria.
 
 
-## Usage
+**Regras de negócio**
+O usuário não precisa estar logado no sistema.
 
-Clone this template to your machine and run:
+# Cadastro de especificação dos carros
 
-```bash
-  yarn
-```
+**Requisitos Funcionais**
+Deve ser possível cadastrar uma especificação para um carro.
+Deve ser possível listar todas as especificações.
+Deve ser possível listar todos os carros.
 
-or
+**Regras de negócio**
+Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
+Não deve ser possível cadastrar uma especificação ja existente para o mesmo carro.
+O usuário responsável pelo cadastro deve ser um usuário admnistrador.
 
-```bash
-  npm install
-```
+# Cadastro de imagens dos carros
+**Requisitos Funcionais**
+Deve ser possível cadastrar imagens para os carros.
 
-to install all dependencies.
+**Requisitos Não Funcionais**
+Utilizar o multer para upload de arquivo.
 
-## Development
-Runs:
+**Regras de negócio**
+O usuário deve poder cadastrar  mais de uma imagem para o mesmo carro.
+O usuário responsável pelo cadastro deve ser um usuário admnistrador.
 
-```bash
-  yarn dev
-```
-or
+# Aluguel de carro
 
-```bash
-  npm dev
-```
+**Requisitos Funcionais**
+Deve ser possível cadastrar um aluguel.
 
-to execute the app at port 3333.
-
-### Let's code! 🚀 💻
+**Regras de negócio**
+O aluguel deve ter duração mínima de 24h.
+Não deve ser possível cadastrar um aluguel caso já exista um aberto para o mesmo usuário.
+Não deve ser possível cadastrar um aluguel caso já exista um aberto para o mesmo carro.
