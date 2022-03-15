@@ -4,7 +4,7 @@ import { ICreateCategoryDTO } from "../../dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "../implementations/ICategoriesRepository";
 
 export class CategoriesRepositoryInMemory implements ICategoriesRepository {
-  categories: Category[] = [];
+  private categories: Category[] = [];
 
   async create(category: ICreateCategoryDTO): Promise<Category> {
     const newCategory = {
