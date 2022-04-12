@@ -24,6 +24,7 @@
     "prettier/prettier": "error",
     "camelcase": "off",
     "import/no-unresolved": "error",
+    "no-unused-vars": "warn",
     "no-plusplus": "off",
     "@typescript-eslint/naming-convention": [
       "error",
