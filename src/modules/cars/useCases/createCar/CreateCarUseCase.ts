@@ -21,12 +21,12 @@ export class CreateCarUseCase {
     private carsRepository: ICarsRepository
   ) {}
   async execute(data: IRequest): Promise<Car> {
-    const carAlreadyExists = this.carsRepository.findByLicensePlate(
+    const carAlreadyExists = await this.carsRepository.findByLicensePlate(
       data.license_plate
     );
 
     if (carAlreadyExists) {
-      throw new AppError("Car akready exists!");
+      throw new AppError("Car already exists!", 422);
     }
 
     return this.carsRepository.create(data);

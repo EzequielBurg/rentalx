@@ -3,7 +3,7 @@ version: "3"
 services:
   database:
     image: postgres
-    container_name: postgres
+    container_name: pg-rentalx
     ports:
       - 5432:5432
     environment:

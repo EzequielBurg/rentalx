@@ -6,6 +6,10 @@ import { ICarsRepository } from "../implementations/ICarsRepository";
 export class CarsRepositoryInMemory implements ICarsRepository {
   private cars: Car[] = [];
 
+  async list(): Promise<Car[]> {
+    return this.cars;
+  }
+
   async create(data: ICreateCarDTO): Promise<Car> {
     const newCar = {
       id: Math.random().toString(),
