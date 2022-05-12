@@ -7,7 +7,7 @@ export class ListCarsController {
   async handle(req: Request, res: Response): Promise<Response> {
     const listCarsUseCase = container.resolve(ListCarsUseCase);
 
-    const allCars = await listCarsUseCase.execute();
+    const allCars = await listCarsUseCase.execute({ ...req.query });
 
     return res.json(allCars);
   }

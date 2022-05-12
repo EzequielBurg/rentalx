@@ -1,6 +1,7 @@
 import { getRepository, Repository } from "typeorm";
 
 import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
+import { IListAvailableCarsDTO } from "@modules/cars/dtos/IListAvailableCarsDTO";
 import { ICarsRepository } from "@modules/cars/repositories/implementations/ICarsRepository";
 
 import { Car } from "../entities/Cars";
@@ -12,8 +13,10 @@ export class CarsRepository implements ICarsRepository {
     this.repository = getRepository(Car);
   }
 
-  list(): Promise<Car[]> {
-    return this.repository.find();
+  listAvailable(filters?: IListAvailableCarsDTO): Promise<Car[]> {
+    return this.repository.find({
+      where: { available: true, ...filters },
+    });
   }
 
   async create(data: ICreateCarDTO): Promise<Car> {

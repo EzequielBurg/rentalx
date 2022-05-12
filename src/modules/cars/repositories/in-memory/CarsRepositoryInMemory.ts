@@ -6,8 +6,19 @@ import { ICarsRepository } from "../implementations/ICarsRepository";
 export class CarsRepositoryInMemory implements ICarsRepository {
   private cars: Car[] = [];
 
-  async list(): Promise<Car[]> {
-    return this.cars;
+  async listAvailable(
+    category_id?: string,
+    brand?: string,
+    name?: string
+  ): Promise<Car[]> {
+    return this.cars
+      .filter((car) => car.available)
+      .filter(
+        (car) =>
+          (name && name === car.name) ||
+          (brand && brand === car.brand) ||
+          (category_id && category_id === car.category_id)
+      );
   }
 
   async create(data: ICreateCarDTO): Promise<Car> {
@@ -26,14 +37,4 @@ export class CarsRepositoryInMemory implements ICarsRepository {
   async findByLicensePlate(license_plate: string): Promise<Car> {
     return this.cars.find((item) => item.license_plate === license_plate);
   }
-
-  // async list(): Promise<Category[]> {
-  //   return this.categories;
-  // }
-
-  // async findByName(name: string): Promise<Category> {
-  //   const category = this.categories.find((category) => category.name === name);
-
-  //   return category;
-  // }
 }
