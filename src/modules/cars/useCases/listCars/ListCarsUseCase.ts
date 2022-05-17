@@ -12,8 +12,6 @@ export class ListCarsUseCase {
   ) {}
 
   async execute(filters?: IListAvailableCarsDTO): Promise<Car[]> {
-    const cars = await this.CarsRepository.listAvailable({ ...filters });
-
-    return cars;
+    return this.CarsRepository.listAvailable({ ...filters });
   }
 }

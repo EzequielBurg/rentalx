@@ -4,11 +4,17 @@ import { CreateCarController } from "@modules/cars/useCases/createCar/CreateCarC
 import { ListCarsController } from "@modules/cars/useCases/listCars/ListCarsController";
 
 import { ensureAdmin } from "../middlewares/ensureAdmin";
+import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 
 export const carsRoutes = Router();
 
 const createCarController = new CreateCarController();
 const listCarsController = new ListCarsController();
 
-carsRoutes.post("", ensureAdmin, createCarController.handle);
 carsRoutes.get("", listCarsController.handle);
+carsRoutes.post(
+  "",
+  ensureAuthenticated,
+  ensureAdmin,
+  createCarController.handle
+);

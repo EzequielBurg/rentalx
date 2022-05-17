@@ -10,10 +10,10 @@ import { usersRoutes } from "./users.routes";
 export const routes = Router();
 
 routes.use("/users", usersRoutes);
+routes.use("/cars", carsRoutes);
 routes.use(authenticateRoutes);
 
 routes.use(ensureAuthenticated);
 
 routes.use("/categories", categoriesRoutes);
 routes.use("/specifications", specificationsRoutes);
-routes.use("/cars", carsRoutes);

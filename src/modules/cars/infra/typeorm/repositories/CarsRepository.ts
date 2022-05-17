@@ -13,7 +13,7 @@ export class CarsRepository implements ICarsRepository {
     this.repository = getRepository(Car);
   }
 
-  listAvailable(filters?: IListAvailableCarsDTO): Promise<Car[]> {
+  async listAvailable(filters?: IListAvailableCarsDTO): Promise<Car[]> {
     return this.repository.find({
       where: { available: true, ...filters },
     });
