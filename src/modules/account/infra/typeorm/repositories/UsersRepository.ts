@@ -15,26 +15,18 @@ export class UsersRepository implements IUsersRepository {
   async create(data: ICreateUserDTO): Promise<User> {
     const user = this.repository.create(data);
 
-    const userCreated = await this.repository.save(user);
-
-    return userCreated;
+    return this.repository.save(user);
   }
 
   async findByEmail(email: string): Promise<User> {
-    const user = await this.repository.findOne({ email });
-
-    return user;
+    return this.repository.findOne({ email });
   }
 
   async findById(id: string): Promise<User> {
-    const user = await this.repository.findOne(id);
-
-    return user;
+    return this.repository.findOne(id);
   }
 
   async updateAvatar(data: IUpdateUserAvatarDTO): Promise<User> {
-    const userUpdated = await this.repository.save(data);
-
-    return userUpdated;
+    return this.repository.save(data);
   }
 }

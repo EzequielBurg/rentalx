@@ -30,7 +30,7 @@ describe("Authenticate user", () => {
 
     const authenticatedUser = await authenticateUserUseCase.execute({
       email: newUser.email,
-      password: newUser.password,
+      password: "user123",
     });
 
     expect(authenticatedUser).toHaveProperty("token");

@@ -1,4 +1,5 @@
 import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
+import { IListAvailableCarsDTO } from "@modules/cars/dtos/IListAvailableCarsDTO";
 import { Car } from "@modules/cars/infra/typeorm/entities/Cars";
 
 import { ICarsRepository } from "../implementations/ICarsRepository";
@@ -6,19 +7,19 @@ import { ICarsRepository } from "../implementations/ICarsRepository";
 export class CarsRepositoryInMemory implements ICarsRepository {
   private cars: Car[] = [];
 
-  async listAvailable(
-    category_id?: string,
-    brand?: string,
-    name?: string
-  ): Promise<Car[]> {
-    return this.cars
-      .filter((car) => car.available)
-      .filter(
-        (car) =>
-          (name && name === car.name) ||
-          (brand && brand === car.brand) ||
-          (category_id && category_id === car.category_id)
-      );
+  async listAvailable({
+    name,
+    brand,
+    category_id,
+  }: IListAvailableCarsDTO): Promise<Car[]> {
+    const cars = this.cars.filter(
+      (car) =>
+        car.available ||
+        (name && name === car.name) ||
+        (brand && brand === car.brand) ||
+        (category_id && category_id === car.category_id)
+    );
+    return cars;
   }
 
   async create(data: ICreateCarDTO): Promise<Car> {
@@ -26,6 +27,7 @@ export class CarsRepositoryInMemory implements ICarsRepository {
       id: Math.random().toString(),
       available: true,
       created_at: new Date(),
+      specifications: [],
       ...data,
     };
 

@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { inject, injectable } from "tsyringe";
 
 import { IListAvailableCarsDTO } from "@modules/cars/dtos/IListAvailableCarsDTO";
@@ -8,10 +9,10 @@ import { ICarsRepository } from "@modules/cars/repositories/implementations/ICar
 export class ListCarsUseCase {
   constructor(
     @inject("CarsRepository")
-    private CarsRepository: ICarsRepository
+    private carsRepository: ICarsRepository
   ) {}
 
   async execute(filters?: IListAvailableCarsDTO): Promise<Car[]> {
-    return this.CarsRepository.listAvailable({ ...filters });
+    return this.carsRepository.listAvailable({ ...filters });
   }
 }

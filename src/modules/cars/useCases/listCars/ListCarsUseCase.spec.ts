@@ -34,12 +34,12 @@ describe("List cars", () => {
       daily_rate: 20,
       license_plate: "ABC-9874",
       fine_amount: 5,
-      brand: "brand car 2",
+      brand: "brand car",
       category_id: "category car",
     });
 
     const cars = await listCarsUseCase.execute({ brand: "brand car" });
 
-    console.log(cars);
+    expect(cars).toHaveLength(1);
   });
 });
