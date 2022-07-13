@@ -7,6 +7,10 @@ import { ICarsRepository } from "../implementations/ICarsRepository";
 export class CarsRepositoryInMemory implements ICarsRepository {
   private cars: Car[] = [];
 
+  async findById(id: string): Promise<Car> {
+    return this.cars.find((car) => car.id === id);
+  }
+
   async listAvailable({
     name,
     brand,
