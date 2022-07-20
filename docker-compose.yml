@@ -3,31 +3,35 @@ version: "3"
 services:
   database:
     image: postgres
-    container_name: pg-rentalx
+    container_name: pg-rentx
+    restart: always
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=rentalx
-      - POSTGRES_PASSWORD=rentalx
-      - POSTGRES_DB=rentalx
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=ignite
+      - POSTGRES_DB=rentx
     volumes:
       - pgdata:/data/postgres
     networks:
-      - rentalx
+      - rentx
   app:
     build: .
-    container_name: rentalx
+    container_name: rentx
+    restart: always
     ports:
       - 3333:3333
+    depends_on:
+      - database
     volumes:
       - .:/usr/app
     networks:
-      - rentalx
+      - rentx
 
 volumes:
   pgdata:
     driver: local
 
 networks:
-  rentalx:
+  rentx:
     driver: bridge

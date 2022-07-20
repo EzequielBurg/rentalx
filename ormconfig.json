@@ -1,16 +1,12 @@
 {
   "type": "postgres",
-  "host": "localhost",
   "port": 5432,
-  "username": "rentalx",
-  "password": "rentalx",
-  "database": "rentalx",
-  "migrations": [
-    "./src/shared/infra/typeorm/migrations/*.ts"
-  ],
-  "entities": [
-    "./src/modules/**/entities/*.ts"
-  ],
+  "host": "179.189.95.89",
+  "username": "docker",
+  "password": "ignite",
+  "database": "rentx",
+  "migrations": ["./src/shared/infra/typeorm/migrations/*.ts"],
+  "entities": ["./src/modules/**/entities/*.ts"],
   "cli": {
     "migrationsDir": "./src/shared/infra/typeorm/migrations"
   }
