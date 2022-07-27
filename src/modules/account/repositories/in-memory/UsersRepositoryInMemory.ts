@@ -8,13 +8,15 @@ export class UsersRepositoryInMemory implements IUsersRepository {
   users: User[] = [];
 
   async create(data: ICreateUserDTO): Promise<User> {
-    const newUser = {
+    const newUser = new User();
+
+    Object.assign(newUser, {
       id: Math.random().toString(),
       created_at: new Date(),
       avatar: null,
       is_admin: false,
       ...data,
-    };
+    });
 
     this.users.push(newUser);
 

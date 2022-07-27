@@ -8,6 +8,10 @@ export class SpecificationsRepositoryInMemory
 {
   private specifications: Specification[] = [];
 
+  async list(): Promise<Specification[]> {
+    return this.specifications;
+  }
+
   async create({
     name,
     description,
