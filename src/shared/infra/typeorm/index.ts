@@ -1,7 +1,15 @@
 import { Connection, createConnection, getConnectionOptions } from "typeorm";
 
-export default async (): Promise<Connection> => {
+export default async (host = "database"): Promise<Connection> => {
   const defaultOptions = await getConnectionOptions();
 
-  return createConnection(defaultOptions);
+  return createConnection(
+    Object.assign(defaultOptions, {
+      host,
+      database:
+        process.env.NODE_ENV === "test"
+          ? "rentx-test"
+          : defaultOptions.database,
+    })
+  );
 };
