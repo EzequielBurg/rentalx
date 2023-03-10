@@ -54,5 +54,20 @@ O aluguel deve ter duração mínima de 24h.
 Não deve ser possível cadastrar um aluguel caso já exista um aberto para o mesmo usuário.
 Não deve ser possível cadastrar um aluguel caso já exista um aberto para o mesmo carro.
 O usuário deve estar logado na aplicação.
+Ao realizar um aluguel, o status do carro deverá ficar insiponível.
+
+
+# Devolução do carro
+
+**Requisitos Funcionais**
+Deve ser possível realizar a devolução do carro.
+
+**Regras de negócio**
+Se o carro for devolvido com menos de 24 horas, deverá ser cobrada a diária completa.
+Ao realizar a devolução, o carro deverá ser liberado para outro aluguel.
+Ao realizar a devolução, o usuário deverá ser liberado para outro aluguel.
+Ao realizar a devolução, deverá ser calculado o total do aluguel.
+Caso o horário de devolução seja superior ao horário previsto de entrega, deverá ser cobrado multa proporcional aos dias atrasados.
+Caso haja multa, deverá ser somada ao total do aluguel.
 
 ## Obs: Rodar a seed para criar usuário admin (yarn seed:admin) (com o host do orm.config = localhost)

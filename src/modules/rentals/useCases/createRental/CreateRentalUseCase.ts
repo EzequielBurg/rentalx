@@ -1,6 +1,7 @@
 import "reflect-metadata";
 import { inject, injectable } from "tsyringe";
 
+import { ICarsRepository } from "@modules/cars/repositories/implementations/ICarsRepository";
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
@@ -17,7 +18,9 @@ export class CreateRentalUseCase {
     @inject("RentalsRepository")
     private rentalRepository: IRentalsRepository,
     @inject("DayjsDateProvider")
-    private dateProvider: IDateProvider
+    private dateProvider: IDateProvider,
+    @inject("CarsRepository")
+    private carsRepository: ICarsRepository
   ) {}
 
   async execute(data: IRequest): Promise<Rental> {
@@ -43,6 +46,8 @@ export class CreateRentalUseCase {
     if (compare < minimumHour) throw new AppError("Invalid return time");
 
     const rental = await this.rentalRepository.create(data);
+
+    await this.carsRepository.updateAvailable(data.car_id, false);
 
     return rental;
   }
